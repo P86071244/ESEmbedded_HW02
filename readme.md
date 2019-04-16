@@ -71,9 +71,13 @@ Which register will be pushed into the stack first?
 2.設計 main.s，我在12-15行分別為r0, r1, r2, r3加入了數值。
 並在20行將PUSH打亂成`r3, r1, r0, r2`。在25行POP也打亂成`r6, r5, r7, r4`。
 
+(https://github.com/P86071244/ESEmbedded_HW02/blob/master/main.s_screenshot.png)
+
 3.將 main.s 編譯並以 qemu 模擬，`$ make clean`, `$ make`, `$ make qemu`
 開啟另一 Terminal 連線 `$ arm-none-eabi-gdb` ，再輸入 `target remote localhost:1234` 連接，輸入兩次的 `ctrl + x` 再輸入 `2`, 開啟 Register 以及指令，並且輸入 `si` 單步執行觀察。
 當執行到 `0x16`及`0x18`時，發現我原先打亂的順序被排序好，次序是從小到大。
+
+(https://github.com/P86071244/ESEmbedded_HW02/blob/master/qemu_screenshot.png)
 
 ## 3.結果討論
 根據[ARM infomation center](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0283b/Babefbce.html)描述了PUSH, POP registers. 
